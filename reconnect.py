@@ -12,7 +12,7 @@ logging.basicConfig(filename='wifi_login.log', level=logging.INFO, format='%(asc
 ###########################################################
 
 # Define network name, URLs, and login information
-network_name = "UC Guest"
+network_name = "UC_Guest"
 target_url = "https://www.ultiumcell.com/"
 website_link = "http://10.95.4.50/guest/guest_reg.php?cmd=login&mac=58:86:94:f4:02:e7&ip=10.95.60.164&essid=UC%5FGuest&apname=UC_OA_ABA_1F_AP_59.91&apgroup=UC_OA&url=http%3A%2F%2Fwww%2Emsftconnecttest%2Ecom%2Fredirect&_browser=1"
 username = "guest"
@@ -27,7 +27,7 @@ click = "click"
 element_for_username = "ID_formf9f21400_guest_register_visitor_name"
 element_for_email = "ID_formf9f21400_guest_register_email"
 element_for_phone = "ID_formf9f21400_guest_register_visitor_phone_intl"
-element_for_checkbox = ""
+element_for_checkbox = "ID_formf9f21400_guest_register_creator_accept_terms"
 element_for_submit_1 = "ID_formf9f21400_guest_register_submit"
 element_for_submit_2 = "ID_forme2917b01_guest_register_receipt_submit"
 
@@ -162,6 +162,7 @@ def login_website():
         fill_form(browser, username, element_for_username, sks)
         fill_form(browser, email, element_for_email, sks)
         fill_form(browser, phone, element_for_phone, sks)
+        fill_form(browser, None, element_for_checkbox, click)
         fill_form(browser, None, element_for_submit_1, click)
         fill_form(browser, None, element_for_submit_2, click)
         close_browser_when_complete(browser, target_url)

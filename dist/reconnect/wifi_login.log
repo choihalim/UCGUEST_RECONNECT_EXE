@@ -1,4 +1,0 @@
-2023-11-02 10:56:54,779 - INFO - Success: Disconnected from the current Wi-Fi network
-2023-11-02 10:56:55,235 - INFO - Success: Disconnected from the current Wi-Fi network
-2023-11-02 10:57:00,405 - ERROR - Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available: Command '['netsh', 'wlan', 'connect', 'name=UC Guest']' returned non-zero exit status 1.
-2023-11-02 10:57:00,894 - ERROR - Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available: Command '['netsh', 'wlan', 'connect', 'name=UC Guest']' returned non-zero exit status 1.
