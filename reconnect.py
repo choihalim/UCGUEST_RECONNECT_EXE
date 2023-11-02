@@ -97,7 +97,8 @@ def disconnect_from_current_wifi():
         subprocess.run(['netsh', 'wlan', 'disconnect'], check=True)
         print("Disconnected from the current Wi-Fi network")
         return True
-    except subprocess.CalledProcessError:
+    except subprocess.CalledProcessError as e:
+        logging.error("An error occurred during the disconnection process: %s", e)
         print("Failed to disconnect from the current Wi-Fi network")
         return False
 
@@ -109,7 +110,8 @@ def connect_to_uc_guest():
                        'name=UC Guest'], check=True)
         print("Connected to 'UC Guest' Wi-Fi network")
         return True
-    except subprocess.CalledProcessError:
+    except subprocess.CalledProcessError as e:
+        logging.error("Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available: %s", e)
         print("Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available.")
         return False
 
