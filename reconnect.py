@@ -90,7 +90,7 @@ except:
 ###########################################################
 
 
-# disconnects from UC Guest
+# disconnects from UC_Guest
 def disconnect_from_current_wifi():
     try:
         # Use the netsh command to disconnect from the currently connected network
@@ -102,17 +102,17 @@ def disconnect_from_current_wifi():
         print("Failed to disconnect from the current Wi-Fi network")
         return False
 
-# connects to UC Guest
+# connects to UC_Guest
 def connect_to_uc_guest():
     try:
-        # Use the netsh command to connect to the "UC Guest" network
+        # Use the netsh command to connect to the "UC_Guest" network
         subprocess.run(['netsh', 'wlan', 'connect',
-                       'name=UC Guest'], check=True)
-        print("Connected to 'UC Guest' Wi-Fi network")
+                       'name=UC_Guest'], check=True)
+        print("Connected to 'UC_Guest' Wi-Fi network")
         return True
     except subprocess.CalledProcessError as e:
-        logging.error("Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available: %s", e)
-        print("Failed to connect to 'UC Guest' Wi-Fi network. Please check that the connection is available.")
+        logging.error("Failed to connect to 'UC_Guest' Wi-Fi network. Please check that the connection is available: %s", e)
+        print("Failed to connect to 'UC_Guest' Wi-Fi network. Please check that the connection is available.")
         return False
 
 # fills out the guest form
@@ -176,14 +176,14 @@ def login_website():
 def main():
     try:
         if disconnect_from_current_wifi():
-            print("Attempting to connect to UC Guest...")
+            print("Attempting to connect to UC_Guest...")
             logging.info("Success: Disconnected from the current Wi-Fi network")
             time.sleep(5)
             if connect_to_uc_guest():
-                logging.info("Success: Connected to UC Guest")
+                logging.info("Success: Connected to UC_Guest")
                 time.sleep(5)
                 if login_website():
-                    logging.info("Success: Reconnected to UC Guest, guest wifi access form complete")
+                    logging.info("Success: Reconnected to UC_Guest, guest wifi access form complete")
                     return
     except Exception as e:
         print(f"An error occurred: {e}")
