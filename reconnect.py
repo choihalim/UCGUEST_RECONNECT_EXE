@@ -33,6 +33,12 @@ element_for_submit_2 = "ID_forme2917b01_guest_register_receipt_submit"
 
 ###########################################################
 
+required_packages = [
+    'pandas',
+    'selenium',
+    'chromedriver_autoinstaller',
+]
+
 # install required packages
 def pip_install(module):
     try:
@@ -46,6 +52,15 @@ def pip_install(module):
     except:
         print(traceback.format_exc())
         return False
+
+for package in required_packages:
+    try:
+        __import__(package)  # Check if the package is already installed
+        print(f'{package} is already installed.')
+    except ImportError:
+        if pip_install(package):
+            __import__(package)  # Try to import the package after installation
+            print(f'{package} is now installed and imported.')
 
 try:
     import pandas as pd
@@ -67,6 +82,9 @@ try:
 except:
     if pip_install('traceback'):
         import traceback
+# try:
+#     import 
+        
 try:
     from selenium import webdriver
     from selenium.webdriver.common.by import By
