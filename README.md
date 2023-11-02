@@ -1,19 +1,31 @@
-# AutoLoginBot
-This bot will help you in automatically logging in you account of the desired website or webpage when run. It basically saves time and energy of typing the username and password again and again.
-P.S. I used it to login into my college's wifi network.
+# UC Guest Wi-Fi Reconnection Script
+## Overview
+This Python script is designed to assist Line Computers (with Chrome Browsers) in automatically reconnecting to the UC Guest Wi-Fi network. The script provides a convenient solution for Line Computers that have temporary connections to this network, ensuring a smooth and hassle-free reconnection process. Please utilize Windows' Task Scheduler to automate this process.
 
-### How to use
+## Features
+- The script offers the following features:
 
-1. Enter the website and your username and password in the required to login into the website.
+- Wi-Fi Disconnection: It disconnects the Line Computer from the current Wi-Fi network, preparing it for reconnection.
 
+- Wi-Fi Reconnection: It establishes a connection to the "UC Guest" Wi-Fi network, allowing the Line Computer to regain network access.
 
-2. Now go to the website/webpage and open the developer tools/Inspect element option.
-3. There search the html code corresponding to the html input fields of username, password and submit button as well.
-4. Copy the name(or class or id) of that element and paste it in the python code.
-5. Run the file.
+- Automated Form Submission: The script automatically fills out a guest access form to ensure seamless network access, particularly if the UC Guest network requires form submission for authentication.
 
-(Optional)
+- Logging: Detailed logging of actions and results to track the success and status of each step.
 
-As I wanted the automation to be a click easy, I created a Automator (only for macOS users) that just runs the python file when clicked.
+## Usage
 
-###### Created by Ritvik Khanna
+- The script will automatically attempt to pip install necessary packages. Please ensure Python is installed for this to work.
+
+- In case that the guest wifi form changes, please alter these details to customize your needs:
+    - network_name: Name of the Wi-Fi network to connect to (e.g., "UC Guest").
+    - target_url: The URL you want to reach after successfully reconnecting.
+    - website_link: The URL of the guest access form, if applicable.
+    - username, email, and phone: Guest form information.
+- Run the script (.exe file) to automate the disconnection, reconnection, and guest form submission. Set up in Task Scheduler to automate this process every day.
+- Check the logs in the wifi_login.log file to verify the success and status of each step.
+
+## Error Handling
+The script is designed to handle errors and provide detailed logs for troubleshooting. It logs errors, timeouts, and failures to help you diagnose any issues that may arise during the reconnection process. If any questions or major bugs arise, please contact me at halim.choi@lgsolutionpartner.com with the log file attached.
+
+###### Created by Halim Choi (LG Solution Partner LLC @ Ultium Cells)
