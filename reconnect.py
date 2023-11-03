@@ -1,6 +1,7 @@
 import logging
 import subprocess
 import time
+import os
 import traceback
 import warnings
 from selenium import webdriver
@@ -175,7 +176,9 @@ def close_browser_when_complete(browser, target_url):
 # conducts login + browser close
 def login_website():
     try:
-        browser = webdriver.Chrome()  # uncomment this line,for chrome users
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        chrome_driver_path = os.path.join(script_dir, "chromedriver.exe")
+        browser = webdriver.Chrome(executable_path=chrome_driver_path)
         browser.get((website_link))
         fill_form(browser, username, element_for_username, sks)
         fill_form(browser, email, element_for_email, sks)
